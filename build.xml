@@ -1,0 +1,17 @@
+<project default="all">
+    <target name="compile">
+        <mkdir dir="bin"/>
+        <javac srcdir="src" destdir="bin">
+		<classpath>
+			<pathelement path="lib/commons-codec/commons-codec-1.3.jar"/>
+		</classpath>
+	</javac>
+    </target>
+
+    <target name="dist" depends="compile" description="generate the distribution">
+        <mkdir dir="dist" />
+        <jar destfile="dist/jade.jar" basedir="bin" />
+    </target>
+
+    <target name="all" depends="compile,dist" />
+</project>
